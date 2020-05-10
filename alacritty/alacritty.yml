@@ -1,0 +1,9 @@
+background_opacity: 0.95
+
+font:
+  normal:
+    family: "Fira Code"
+  size: 11
+
+shell:
+  program: tmux
