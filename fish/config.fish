@@ -1,3 +1,6 @@
+# Display system info
+sh ~/Scripts/ufetch.sh
+
 # Starship
 
 starship init fish | source
