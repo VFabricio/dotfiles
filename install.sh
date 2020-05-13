@@ -2,6 +2,17 @@
 
 make_symlink()
 {
+  local full_dotfile=$1
+  local full_target=$2
+
+  echo "Linking $full_target to $full_dotfile..."
+  if [[ $dry_run == false ]]; then
+    ln -sf $full_dotfile $full_target
+  fi
+}
+
+install()
+{
   local dotfile_path=$1
   local dotfile=$2
   local target_path=$3
@@ -13,31 +24,18 @@ make_symlink()
     full_target="$target_path/$dotfile"
   fi
 
-  echo "Linking $full_target to $dotfile_path/$dotfile..."
-  if [[ $dry_run == false ]]; then
-    ln -sf "$dotfile_path/$dotfile" $full_target
-  fi
-}
-
-install()
-{
-  local dotfile_path=$1
-  local dotfile=$2
-  local target_path=$3
-
-  local full_target="$target_path/$dotfile"
   if [[ -e $full_target ]]; then
     echo "Target $full_target already exists. Should it be overwritten? [y/n]"
     local option
     read -n 1 option
     printf '\n'
     if [[ $option == 'y' ]]; then
-      make_symlink $dotfile_path $dotfile $target_path $4
+      make_symlink "$dotfile_path/$dotfile" $full_target
     else
       echo "Skipping $dotfile..."
     fi
   else
-    make_symlink $dotfile_path $dotfile $target_path $4
+    make_symlink "$dotfile_path/$dotfile" $full_target
   fi
 }
 
@@ -73,3 +71,4 @@ install "${dotfiles_path}/nvim" "init.vim" "$HOME/.config/nvim"
 install "${dotfiles_path}/polybar" "config" "$HOME/.config/polybar"
 install "${dotfiles_path}/rofi" "oxide.rasi" "$HOME/.config/rofi"
 install "${dotfiles_path}/tmux" "tmux.conf" "$HOME" --dotted
+install "${dotfiles_path}/polybar-scripts" "player-mpris-tail.py" "$HOME/Scripts/polybar-scripts"
