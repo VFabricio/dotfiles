@@ -76,7 +76,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'ErichDonGubler/vim-sublime-monokai'
   Plug 'preservim/nerdtree'
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+"  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'leafgarland/typescript-vim'
   Plug 'neovimhaskell/haskell-vim'
   Plug 'tpope/vim-fireplace'
@@ -94,11 +94,13 @@ let g:ale_linter_aliases = {
 \}
 
 let g:ale_linters = {
+\  'javascript': ['eslint'],
 \  'haskell': ['hie'],
 \  'svelte': ['eslint']
 \}
 
 let g:ale_fixers = {
+\  'javascript': ['eslint'],
 \  'haskell': ['hie'],
 \  'svelte': ['eslint']
 \}
@@ -108,6 +110,7 @@ map tt :NERDTreeToggle<CR>
 
 "CtrlP configuration
 let g:ctrlp_map = '<c-p>'
+let g:ctrlp_custom_ignore = {'dir': 'node_modules'}
 
 "Rainbow configuration
 let g:rainbow_active = 1
@@ -132,9 +135,10 @@ highlight clear SignColumn
 "FILETYPE = tex
 autocmd FileType tex call TexNewMathZone("D", "align", 1)
 autocmd FileType tex set makeprg=pdflatex\ \-interaction\ batchmode\ %
-autocmd FileType tex nnoremap \\ :make<CR>
+autocmd FileType tex nnoremap <Leader>\ :make<CR>
 
 " Coc config
+let g:coc_disable_startup_warning = 1
 " TextEdit might fail if hidden is not set.
 set hidden
 
