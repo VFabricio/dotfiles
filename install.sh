@@ -67,7 +67,9 @@ install "${dotfiles_path}/dunst" "dunstrc" "$HOME/.config/dunst"
 install "${dotfiles_path}/fish" "config.fish" "$HOME/.config/fish"
 install "${dotfiles_path}/git" "gitconfig" "$HOME" --dotted
 install "${dotfiles_path}/i3" "config" "$HOME/.config/i3"
+install "${dotfiles_path}/kitty" "kitty.conf" "$HOME/.config/kitty"
 install "${dotfiles_path}/nvim" "init.vim" "$HOME/.config/nvim"
+install "${dotfiles_path}/nvim" "coc-settings.json" "$HOME/.config/nvim"
 install "${dotfiles_path}/polybar" "config" "$HOME/.config/polybar"
 install "${dotfiles_path}/rofi" "oxide.rasi" "$HOME/.config/rofi"
 install "${dotfiles_path}/tmux" "tmux.conf" "$HOME" --dotted
