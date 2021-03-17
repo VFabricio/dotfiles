@@ -1,0 +1,47 @@
+{
+  "languageserver": {
+    "clojure-lsp": {
+      "command": "bash",
+      "args": ["-c", "clojure-lsp"],
+      "filetypes": ["clojure"],
+      "rootPatterns": ["project.clj"],
+      "additionalSchemes": ["jar", "zipfile"],
+      "trace.server": "verbose",
+      "initializationOptions": {
+      }
+    },
+    "haskell": {
+      "command": "hie-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": [
+        ".stack.yaml",
+        "cabal.config",
+        "package.yaml"
+      ],
+      "filetypes": [
+        "hs",
+        "lhs",
+        "haskell"
+      ],
+      "initializationOptions": {
+        "languageServerHaskell": {
+        }
+      }
+    },
+    "purescript": {
+       "command": "purescript-language-server",
+       "args": ["--stdio", "--config {}"],
+       "filetypes": ["purescript"],
+       "trace.server": "off",
+       "rootPatterns": ["bower.json", "psc-package.json", "spago.dhall"],
+       "settings": {
+         "purescript": {
+           "addSpagoSources": true // etc
+         }
+       }
+    },
+  },
+  "diagnostic.enable": false,
+  "java.format.settings.url": "/home/fabricio/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml",
+  "java.errors.incompleteClasspath.severity": "ignore"
+}
