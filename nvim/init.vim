@@ -74,11 +74,14 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'luochen1990/rainbow'
   Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'dracula/vim', { 'as': 'dracula' }
   Plug 'ErichDonGubler/vim-sublime-monokai'
   Plug 'preservim/nerdtree'
+  Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
 "  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
   Plug 'leafgarland/typescript-vim'
   Plug 'neovimhaskell/haskell-vim'
+  Plug 'FrigoEU/psc-ide-vim'
   Plug 'tpope/vim-fireplace'
   Plug 'vim-scripts/paredit.vim'
   Plug 'vim-airline/vim-airline'
@@ -96,17 +99,30 @@ let g:ale_linter_aliases = {
 let g:ale_linters = {
 \  'javascript': ['eslint'],
 \  'haskell': ['hie'],
-\  'svelte': ['eslint']
+\  'svelte': ['eslint'],
+\  'purescript': ['purescript-language-server']
 \}
 
 let g:ale_fixers = {
 \  'javascript': ['eslint'],
 \  'haskell': ['hie'],
-\  'svelte': ['eslint']
+\  'svelte': ['eslint'],
+\  'purescript': ['purty']
+\}
+
+let g:ale_purescript_ls_config = {
+\  'purescript': {
+\    'addSpagoSources': v:true,
+\    'addNpmPath': v:true,
+\    'buildCommand': 'spago build -- --json-errors'
+\  }
 \}
 
 "NerdTree toggle
 map tt :NERDTreeToggle<CR>
+
+"CHADTree
+map <leader>c :CHADopen<CR>
 
 "CtrlP configuration
 let g:ctrlp_map = '<c-p>'
@@ -124,7 +140,7 @@ let g:airline_right_sep = "\ue0b2"
 syntax on
 
 "Nice colors
-colorscheme sublimemonokai
+colorscheme dracula
 set termguicolors
 
 "Transparent gutter

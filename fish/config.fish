@@ -9,6 +9,10 @@ starship init fish | source
 
 nvm use node > /dev/null 2>&1
 
+# Anaconda
+
+source /home/fabricio/anaconda3/etc/fish/conf.d/conda.fish
+
 # Autojump
 
 source /usr/share/autojump/autojump.fish
@@ -39,6 +43,7 @@ abbr -a -g gst git status
 abbr -a -g gck git checkout
 abbr -a -g gcm git commit
 abbr -a -g gad git add
+abbr -a -g nrc npm run commit
 
 # Tiny Care Terminal
 set -gx TTC_APIKEYS false
