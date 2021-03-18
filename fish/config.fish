@@ -11,7 +11,7 @@ nvm use node > /dev/null 2>&1
 
 # Anaconda
 
-source /home/fabricio/anaconda3/etc/fish/conf.d/conda.fish
+source /opt/anaconda/etc/fish/conf.d/conda.fish
 
 # Autojump
 
