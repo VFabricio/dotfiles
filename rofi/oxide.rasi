@@ -3,6 +3,10 @@
  * User: dikiaap
  * Copyright: Diki Ananta
  **/
+configuration {
+    font: "FiraCode Nerd Font 12";
+}
+
 * {
     selected-normal-foreground:  @lightfg;
     foreground:                  rgba ( 196, 202, 212, 100 % );

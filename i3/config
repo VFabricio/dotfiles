@@ -1,6 +1,8 @@
 # Set mod to Alt
-
 set $mod Mod1
+
+# Set font
+font pango: FiraCode Nerd Font:style=Regular 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
